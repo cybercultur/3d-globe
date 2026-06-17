@@ -24,7 +24,13 @@ function FsGlobe() {
   const userInfo = [].slice.call(document.querySelectorAll("[fs-3dglobe-element='tooltip']"));
 
   const marker = [].slice.call(document.querySelectorAll("[fs-3dglobe-element='pin']"));
-  const renderer = new THREE.WebGLRenderer({ canvas, alpha: true });
+  const renderer = new THREE.WebGLRenderer({
+  canvas,
+  alpha: true,
+  antialias: true
+});
+
+renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
 
   const fov = 60;
   const aspect = 2; // the canvas default
