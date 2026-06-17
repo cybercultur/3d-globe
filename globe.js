@@ -136,10 +136,22 @@ function FsGlobe() {
       }
 
       elem.appendChild(pin);
+elem.appendChild(infoBox);
 
-      elem.appendChild(infoBox);
-      labelParentElem.appendChild(elem);
-      companyInfo.elem = elem;
+elem.addEventListener('mouseenter', () => {
+  controls.autoRotate = false;
+});
+
+elem.addEventListener('mouseleave', () => {
+  controls.autoRotate = true;
+});
+
+elem.addEventListener('touchstart', () => {
+  controls.autoRotate = false;
+}, { passive: true });
+
+labelParentElem.appendChild(elem);
+companyInfo.elem = elem;
     }
     requestRenderIfNotRequested();
   }
